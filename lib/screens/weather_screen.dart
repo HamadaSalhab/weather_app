@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_weather/services/weather.dart';
-import 'package:my_weather/utilities/constants.dart';
+import 'package:weather_app/services/weather.dart';
+import 'package:weather_app/utilities/constants.dart';
 import 'package:intl/intl.dart';
 
 class WeatherScreen extends StatelessWidget {
@@ -12,7 +12,7 @@ class WeatherScreen extends StatelessWidget {
   final int dayNumber;
 
   //constructor to initialize the variables above
-  WeatherScreen({this.weatherData, this.daysDateTime, this.dayNumber});
+  WeatherScreen({this.weatherData, required this.daysDateTime, required this.dayNumber});
 
   @override
   Widget build(BuildContext context) {

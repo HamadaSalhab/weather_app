@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_weather/widgets/day_button.dart';
-import 'package:my_weather/services/weather.dart';
+import 'package:weather_app/widgets/day_button.dart';
+import 'package:weather_app/services/weather.dart';
 
 /*
 this DayScreen widget is created as a stateful widget so that live updates
@@ -16,7 +16,7 @@ class _DaysScreenState extends State<DaysScreen> {
   //to store the weather data that is fetched from the API
   var weatherData;
   //to store information about the dates of today and the next 4 days
-  List<DateTime> daysDateTime;
+  List<DateTime>? daysDateTime;
   //weather model in order to call the methods that are related to the weather
   Weather weatherModel = Weather();
 
@@ -85,7 +85,7 @@ class _DaysScreenState extends State<DaysScreen> {
                             itemBuilder: (context, index) {
                               return DayButton(
                                 weatherData: weatherData,
-                                daysDateTime: daysDateTime,
+                                daysDateTime: daysDateTime!,
                                 dayNumber: index,
                               );
                             },
@@ -96,7 +96,7 @@ class _DaysScreenState extends State<DaysScreen> {
                       //A button at the end of the page to refresh the page
                       Padding(
                         padding: EdgeInsets.all(10.0),
-                        child: FlatButton(
+                        child: TextButton(
                           //when we tap on this button it calls the function that updates the weather data.
                           onPressed: () async {
                             getData();

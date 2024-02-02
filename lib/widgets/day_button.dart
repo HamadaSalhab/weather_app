@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:my_weather/utilities/constants.dart';
-import 'package:humanize/humanize.dart' as humanize;
-import 'package:my_weather/screens/weather_screen.dart';
-import 'package:my_weather/services/weather.dart';
+import 'package:weather_app/utilities/constants.dart';
+import 'package:weather_app/screens/weather_screen.dart';
+import 'package:weather_app/services/weather.dart';
 
 /*
 this class represents the buttons that are showed on the first screen (days
@@ -14,12 +13,12 @@ class DayButton extends StatelessWidget {
   //to store the weather data that is passed from the DaysScreen
   final weatherData;
   //to store information about the dates of today and the next 4 days
-  final List<dynamic> daysDateTime;
+  final List<DateTime> daysDateTime;
   //the number of day (starts from 0, so today is 0, tomorrow is 1 and so on...)
   final int dayNumber;
 
   //constructor to initialize those variables
-  DayButton({this.weatherData, this.daysDateTime, this.dayNumber});
+  DayButton({this.weatherData, required this.daysDateTime, required this.dayNumber});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +28,7 @@ class DayButton extends StatelessWidget {
       ),
       //the widget contains a button that has some decoration, displays information about the date of the day and some brief information about the weather in that day (min/max temperature and a weather icon).
       // ignore: deprecated_member_use
-      child: FlatButton(
+      child: TextButton(
         child: Container(
           decoration: BoxDecoration(
             color: Colors.black.withOpacity(0.2),
@@ -59,7 +58,7 @@ class DayButton extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    ' ${DateFormat('MMM').format(daysDateTime[dayNumber])}, ${humanize.ordinal(daysDateTime[dayNumber].day)}',
+                    ' ${DateFormat('MMM').format(daysDateTime[dayNumber])},',
                     style: TextStyle(
                       fontSize: 20.0,
                       fontStyle: FontStyle.italic,

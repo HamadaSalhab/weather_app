@@ -1,5 +1,5 @@
-import 'package:my_weather/services/networking.dart';
-import 'package:my_weather/utilities/constants.dart';
+import 'package:weather_app/services/networking.dart';
+import 'package:weather_app/utilities/constants.dart';
 
 //this class contains all the properties and methods that relates to the weather.
 class Weather {
